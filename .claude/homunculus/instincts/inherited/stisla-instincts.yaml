@@ -1,0 +1,544 @@
+# Instincts generated from https://github.com/rdp77/stisla
+# Generated: 2026-07-05T14:57:12.392Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: stisla-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, docs, fix, refactor, chore
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: docs: add V3.md spec and roadmap, feat(v3): scaffold Phase 0 foundation
+
+---
+id: stisla-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 100 commits
+
+---
+id: stisla-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: stisla-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: stisla-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: stisla-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: stisla-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~26x per month
+- Files: assets/css/*, assets/js/page/*, dev/rtl/*
+
+---
+id: stisla-workflow-add-or-restyle-component-with-demo
+trigger: "when doing add or restyle component with demo"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Workflow Add Or Restyle Component With Demo
+
+## Action
+
+Follow the add-or-restyle-component-with-demo workflow:
+1. Create or update the component SCSS file in src/scss/components/_component-name.scss
+2. Import the component in src/scss/bundles/stisla-full.scss
+3. Add or update theme tokens in src/scss/tokens/_variables.scss and/or _variables-dark.scss if needed
+4. Create a demo page in src/site/pages/component-name.njk
+5. Optionally update src/site/partials/_site-sidebar.njk to add the new page to the sidebar
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: src/scss/components/_*.scss, src/scss/bundles/stisla-full.scss, src/scss/tokens/_variables.scss
+
+---
+id: stisla-workflow-add-or-update-design-tokens
+trigger: "when doing add or update design tokens"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Workflow Add Or Update Design Tokens
+
+## Action
+
+Follow the add-or-update-design-tokens workflow:
+1. Edit or add variables in src/scss/tokens/_variables.scss and/or _variables-dark.scss
+2. Optionally update src/scss/tokens/_root.scss for runtime CSS vars
+3. Update affected component SCSS files to use the new/changed tokens
+4. Update V3.md documentation if the token model changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: src/scss/tokens/_variables.scss, src/scss/tokens/_variables-dark.scss, src/scss/tokens/_root.scss
+
+---
+id: stisla-workflow-add-or-update-demo-infrastructure
+trigger: "when doing add or update demo infrastructure"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Workflow Add Or Update Demo Infrastructure
+
+## Action
+
+Follow the add-or-update-demo-infrastructure workflow:
+1. Edit or add Nunjucks partials/macros in src/site/partials/_demo.njk
+2. Edit or add site scripts in src/site/scripts/site.js
+3. Edit or add site styles in src/site/styles/site.scss
+4. Edit or add Nunjucks filters or build tools in tools/nunjucks-filters.mjs, tools/render-site.mjs, or tools/vite-plugin-nunjucks.mjs
+5. Update V3.md if site conventions or demo patterns change
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/site/partials/_demo.njk, src/site/scripts/site.js, src/site/styles/site.scss
+
+---
+id: stisla-workflow-update-architecture-or-spec-documentation
+trigger: "when doing update architecture or spec documentation"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/rdp77/stisla
+---
+
+# Stisla Workflow Update Architecture Or Spec Documentation
+
+## Action
+
+Follow the update-architecture-or-spec-documentation workflow:
+1. Edit V3.md to add or update sections on architecture, tokens, repo layout, workflows, or open questions
+2. Optionally update related files (e.g., src/site/layouts/base.njk) if the documentation reflects changes in implementation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: V3.md, src/site/layouts/base.njk
+
+---
+id: stisla-instinct-file-naming-kebab-case
+trigger: "When creating or renaming a file in the repository"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct File Naming Kebab Case
+
+## Action
+
+Name the file using kebab-case (e.g., my-file.js)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files: kebab-case
+- Observed in files: src/scss/components/_component-name.scss, src/site/pages/component-name.njk
+
+---
+id: stisla-instinct-function-naming-camelCase
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Function Naming CamelCase
+
+## Action
+
+Name the function using camelCase (e.g., doSomething)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions: camelCase
+
+---
+id: stisla-instinct-class-naming-pascal-case
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Class Naming Pascal Case
+
+## Action
+
+Name the class using PascalCase (e.g., MyClass)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes: PascalCase
+
+---
+id: stisla-instinct-constant-naming-screaming-snake-case
+trigger: "When defining a constant value"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Constant Naming Screaming Snake Case
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE (e.g., MAX_LENGTH)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: stisla-instinct-import-style-relative
+trigger: "When importing modules in JavaScript files"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Import Style Relative
+
+## Action
+
+Use relative import paths (e.g., import x from './x.js')
+
+## Evidence
+
+- Pattern in codeStyle.importStyle: relative
+
+---
+id: stisla-instinct-export-style-named
+trigger: "When exporting modules or functions"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Export Style Named
+
+## Action
+
+Use named exports (e.g., export function foo() {})
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle: named
+
+---
+id: stisla-instinct-git-commit-conventional
+trigger: "When writing a git commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Git Commit Conventional
+
+## Action
+
+Use the Conventional Commits format: <type>(<scope>): <description>
+
+## Evidence
+
+- Pattern in commits.type: conventional
+- Examples: 'docs: add V3.md spec and roadmap', 'feat(v3): scaffold Phase 0 foundation'
+
+---
+id: stisla-instinct-git-commit-prefixes
+trigger: "When choosing a commit type"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Git Commit Prefixes
+
+## Action
+
+Use one of the allowed prefixes: feat, docs, fix, refactor, chore
+
+## Evidence
+
+- Pattern in commits.prefixes: [feat, docs, fix, refactor, chore]
+- Seen in commit examples
+
+---
+id: stisla-instinct-git-commit-length
+trigger: "When writing the commit message subject"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Git Commit Length
+
+## Action
+
+Keep the subject line around 55 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 55
+
+---
+id: stisla-instinct-add-or-restyle-component-with-demo
+trigger: "When someone wants to add a new Bootstrap-based component or restyle an existing one, and document it in the site"
+confidence: 0.98
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Add Or Restyle Component With Demo
+
+## Action
+
+Create or update the SCSS file in src/scss/components, import it in src/scss/bundles/stisla-full.scss, update tokens if needed, create a demo page in src/site/pages, and optionally update the sidebar
+
+## Evidence
+
+- Workflow: add-or-restyle-component-with-demo
+- Files: src/scss/components/_*.scss, src/scss/bundles/stisla-full.scss, src/site/pages/*.njk
+
+---
+id: stisla-instinct-add-or-update-design-tokens
+trigger: "When someone wants to introduce a new design token or adjust existing ones for theming, surfaces, or color ramps"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Add Or Update Design Tokens
+
+## Action
+
+Edit or add variables in src/scss/tokens/_variables.scss and/or _variables-dark.scss, update affected component SCSS files, and update V3.md if the token model changes
+
+## Evidence
+
+- Workflow: add-or-update-design-tokens
+- Files: src/scss/tokens/_variables.scss, src/scss/tokens/_variables-dark.scss, V3.md
+
+---
+id: stisla-instinct-add-or-update-demo-infrastructure
+trigger: "When someone wants to enhance how component demos are rendered, styled, or interacted with on the documentation site"
+confidence: 0.87
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Add Or Update Demo Infrastructure
+
+## Action
+
+Edit or add Nunjucks partials/macros, site scripts, site styles, or build tools, and update V3.md if demo patterns change
+
+## Evidence
+
+- Workflow: add-or-update-demo-infrastructure
+- Files: src/site/partials/_demo.njk, src/site/scripts/site.js, tools/nunjucks-filters.mjs
+
+---
+id: stisla-instinct-update-architecture-or-spec-documentation
+trigger: "When someone wants to document a new architectural decision, update the project roadmap, or clarify workflow rules"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Update Architecture Or Spec Documentation
+
+## Action
+
+Edit V3.md to add or update relevant sections, and optionally update related files such as src/site/layouts/base.njk
+
+## Evidence
+
+- Workflow: update-architecture-or-spec-documentation
+- Files: V3.md, src/site/layouts/base.njk
+
+---
+id: stisla-instinct-feature-development-test-addition
+trigger: "When implementing a new feature"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Feature Development Test Addition
+
+## Action
+
+Add tests for the feature after implementation and before updating documentation
+
+## Evidence
+
+- Workflow: feature-development
+- Commit sequence: Add feature implementation → Add tests for feature → Update documentation
+
+---
+id: stisla-instinct-test-location-separate
+trigger: "When adding or updating tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: rdp77/stisla
+---
+
+# Stisla Instinct Test Location Separate
+
+## Action
+
+Place test files in a separate location from source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation: separate
+
