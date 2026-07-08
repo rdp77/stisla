@@ -1,0 +1,6 @@
+interface:
+  display_name: "Stisla"
+  short_description: "Repo-specific patterns and workflows for stisla"
+  default_prompt: "Use the stisla repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
